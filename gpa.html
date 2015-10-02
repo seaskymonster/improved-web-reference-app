@@ -57,7 +57,7 @@
 <!-- #breadcrumbs -->
 <div id="page-subnav" class="clearfix">
     <div class="ht-container">
-        <div id="breadcrumbs"><a href="http://demo.herothemes.com/supportdesk">Home</a><span class="sep">/</span>Search Results for:<span class="search_result"></span></div></div>
+        <div id="breadcrumbs"><a href="">Home</a><span class="sep">/</span>Search Results by<span style="font-weight:bold"; class="search_result_category"></span> for:<span class="search_result"></span></div></div>
 </div>
 <!-- /#breadcrumbs -->
 
@@ -278,10 +278,13 @@
         if(param_helpid ||param_tag ||param_search){
             if(param_helpid){
                 param = param_helpid;
+                $('.search_result_category').text("HelpId");
             }else if(param_tag){
                 param = param_tag;
+                $('.search_result_category').text("Tag");
             }else{
                 param = param_search;
+                $('.search_result_category').text("Content");
             }
         }else{
             return null;
