@@ -29,42 +29,14 @@
     </style>
     <link rel='stylesheet' id='contact-form-7-css'  href="http://demo.herothemes.com/supportdesk/wp-content/plugins/contact-form-7/includes/css/styles.css?d6b1d9" type='text/css' media='all' />
     <link rel='stylesheet' id='theme-style-css'  href="http://demo.herothemes.com/supportdesk/wp-content/themes/supportdesk/style.css?d6b1d9" type='text/css' media='all' />
-    <style id='theme-style-inline-css' type='text/css'>
 
-
-        a,
-        a:visited,
-        a:hover {
-            color: #E36F3C;
-        }
-
-        button,
-        input[type='reset'],
-        input[type='submit'],
-        input[type='button'],
-        .pagination span,
-        .paging-navigation .nav-previous a:hover,
-        .paging-navigation .nav-next a:hover,
-        .pagination a:hover,
-        .widget_categories li span,
-        .bbp-login-form .bbp-submit-wrapper,
-        .bbp-pagination-links span,
-        .kb-category-list h3 span.count,
-        #page-header,
-        .st_faq .entry-title.active .action,
-        .st_faq .entry-title:hover .action {
-            background:#86b854;
-        }
-
-
-
-    </style>
+    <link rel='stylesheet'  href="assets/css/style.css" type='text/css' media='all' />
     <link rel='stylesheet' id='bbp-child-bbpress-css'  href="http://demo.herothemes.com/supportdesk/wp-content/themes/supportdesk/bbpress/bbpress.css?d6b1d9" type='text/css' media='all' />
     <link rel='stylesheet' id='theme-font-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
     <link rel='stylesheet' id='shortcodes-css'  href="http://demo.herothemes.com/supportdesk/wp-content/themes/supportdesk/framework/shortcodes/shortcodes.css?d6b1d9" type='text/css' media='all' />
     <!-- This site uses the Google Analytics by Yoast plugin v5.4.6 - Universal enabled - https://yoast.com/wordpress/plugins/google-analytics/ -->
 
-<body class="search search-results">
+<body onload="initialize()" class="search search-results">
 
 <!-- #primary-nav-mobile -->
 <nav id="primary-nav-mobile">
@@ -111,7 +83,14 @@
 <div id="page-header" class="clearfix">
     <div class="ht-container">
         <h1>Results for: <span class="search_result"></span></h1>
+        <div  id="live-search">
+            <form  role="search" method="get" id="searchform" class="clearfix" action="http://demo.herothemes.com/supportdesk/" autocomplete="off">
+                <input class="name" type="text" onfocus="if (this.value == 'Search Guide Path') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Search Guide Path';}" value="Search Guide Path ..." name="s" id="s" />
+                <input type="hidden" name="post_type[]" value="st_kb" />
+            </form>
+        </div>
     </div>
+
 </div>
 <!-- /#page-header -->
 
@@ -127,7 +106,6 @@
 <div id="primary" class="sidebar-right clearfix">
     <div class="ht-container">
         <!-- #content -->
-
         <article id="content"  style = "width:70%; height:85vh; border:1px solid #CCCCCC;" class="clearfix post-162 post type-post status-publish format-standard has-post-thumbnail hentry category-how-to tag-howto tag-strategy-2 tag-support has_thumb">
                 <div id="jwt_token_error"></div>
         </article>
@@ -217,7 +195,16 @@
     </div>
 </div>
 <!-- /#primary -->
+<!-- /#feedback -->
+<div id="feedback">
+    <a id="live_support_button" >Give Live Help</a>
+</div>
 
+<!--<div  class="overlay"></div>-->
+<div style="display:none" id="container_for_live_support" class="modal"></div>
+<div class="content">
+</div>
+<!-- /#feedback -->
 <!-- #footer-bottom -->
 <footer id="footer" class="clearfix">
 
@@ -296,7 +283,8 @@
 
 <script src="assets/js/jquery.min.js"></script>
 <script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
-<span id="bruteprotect_uptime_check_string" style="display:none;">7ads6x98y</span>   		<script type="text/javascript">
+<span id="bruteprotect_uptime_check_string" style="display:none;">7ads6x98y</span>
+<script type="text/javascript">
     jQuery(document).ready(function() {
         jQuery('#live-search #s').liveSearch({url: 'http://demo.herothemes.com/supportdesk/?ajax=on&post_type=st_kb&s='});
     });
@@ -320,6 +308,24 @@
     };
 
     function initialize() {
+        //var token = localStorage.getItem('token');
+        var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
+        if(token) {
+            console.log(token);
+            try {
+                NexusConnectSDK.initialize(token);
+                return token;
+            }catch(e){
+                console.log(e);
+                $("#jwt_token_error").append(html);
+            }
+        }else{
+            $("#jwt_token_error").append(html);
+        }
+    };
+
+
+    function get_gpa_param(){
         var param_helpid = getParameterByName('helpid');
         var param_tag = getParameterByName('tag');
         var param_search = getParameterByName('search');
@@ -337,60 +343,59 @@
             return null;
         }
 
-        //var token = localStorage.getItem('token');
-        var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
         var html = '<p style="color:red"> Please input valid JWT TOKEN IN HOME PAGE.</p>';
-        if(token) {
-            console.log(token);
-            try {
-                NexusConnectSDK.initialize(token);
-                if(param_helpid){
-                    NexusConnectSDK.showSelfHelpForId(param, document.getElementById('content'));
-                }else if(param_tag) {
-                    NexusConnectSDK.showSelfHelpForTags([param], document.getElementById('content'));
-                }else{
-                    NexusConnectSDK.showSelfHelpForSearch(param, document.getElementById('content'));
-                }
-            }catch(e){
-                console.log(e);
-                $("#jwt_token_error").append(html);
+        try {
+            if(param_helpid){
+                NexusConnectSDK.showSelfHelpForId(param, document.getElementById('content'));
+            }else if(param_tag) {
+                NexusConnectSDK.showSelfHelpForTags([param], document.getElementById('content'));
+            }else{
+                NexusConnectSDK.showSelfHelpForSearch(param, document.getElementById('content'));
             }
-        }else{
+        }catch(e){
+            console.log(e);
             $("#jwt_token_error").append(html);
         }
+
         console.log('param',param);
         return param;
-    };
+    }
 
     $(document).ready(function() {
-        var param = initialize();
+        var token = initialize();
+        var param = get_gpa_param();
         if(param) {
             $('.search_result').text(param);
         }
         var live_support_button_clicked = false;
+
         $('#live_support_button').click(function () {
+            token = initialize();
             if(!live_support_button_clicked){
                 var fname = "John";
                 var lname = "Doe";
                 var email = 'john.doe@support.com';
                 var phone = Math.floor(Math.random()*10000000000);
                 var externalId = Math.floor((Math.random() * 10000));
-
                 NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
                 NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'),{'phone':'(408)-830-7906', 'skill':'Sales'});
-                $('#live_support').show();
-                $('#live_support_button').css("color","grey");
-                $('#list_of_gpas').removeClass("12u 12u(narrower)");
-                $('#list_of_gpas').addClass("8u 12u(narrower)");
+                $('#container_for_live_support').show();
+               // $('#live_support_button').css("color","grey");
                 live_support_button_clicked = true;
             }else{
-                $('#live_support').hide();
-                $('#live_support_button').css("color","orange");
-                $('#list_of_gpas').removeClass("8u 12u(narrower)");
-                $('#list_of_gpas').addClass("12u 12u(narrower)");
+                $('#container_for_live_support').hide();
+               // $('#live_support_button').css("color","orange");
                 live_support_button_clicked = false;
             }
 
+        });
+
+        jQuery('#live-search').submit(function(event) {
+            event.preventDefault();
+            var input = $('.name').val();
+            if(input) {
+                window.location = "gpa.html?search=" + input;
+            }
         });
 
     });
