@@ -2045,6 +2045,7 @@ a:hover {
 #feedback a {
 	display: block;
 	background: #86b854;
+	border:1px solid #CCCCCC;
 	height: 15px;
 	width: 120px;
 	padding: 8px 16px;
@@ -2053,9 +2054,8 @@ a:hover {
 	font-size: 17px;
 	font-weight: bold;
 	text-decoration: none;
-	border-bottom: solid 1px #333;
-	border-left: solid 1px #333;
-	border-right: solid 1px #fff;
+	border: solid 2px #ffffff;
+
 }
 
 #feedback a:hover {
@@ -2108,15 +2108,14 @@ input[type='button'],
 	width: 300px;
 	height: 400px;
 	line-height: 200px;
-	border:3px solid black;
-	radius:10%;
+	border:1px solid #CCCCCC;
 	position: fixed;
 	top: 50%;
-	right: 0%;
+	right: 0.5%;
 	margin-top: -100px;
 	margin-left: -150px;
 	background-color: #86b854;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	text-align: center;
 	z-index: 999; /* 1px higher than the overlay layer */
 }

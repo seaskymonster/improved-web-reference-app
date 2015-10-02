@@ -64,20 +64,6 @@
 	<!--</script>-->
 
 	<body class="home page page-id-11 page-template page-template-template-front-page page-template-template-front-page-php">
-
-		<!-- #primary-nav-mobile -->
-		<nav id="primary-nav-mobile">
-			<a class="menu-toggle" href="#"></a>
-			<ul id="mobile-menu" class="clearfix">
-				<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11 current_page_item"><a>Home</a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom  "><a href="#">Domains</a>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom "><a href="#">Websites</a></li>
-				<li class="menu-item menu-item-type-custom menu-item-object-custom "><a href="#">Email</a></li>
-				<li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#">Marketing</a></li>
-				<li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#">Support</a></li>
-			</ul>
-		</nav>
-		<!-- /#primary-nav-mobile -->
 		<!-- #header -->
 		<header id="header"  class="clearfix" role="banner">
 				<div class="ht-container">
@@ -92,12 +78,18 @@
 						<!-- #primary-nav -->
 						<nav id="primary-nav" role="navigation" class="clearfix">
 							<ul id="menu-primary-nav" class="nav sf-menu clearfix">
-								<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11 current_page_item "><a href="#">Home</a></li>
-								<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children "><a href="#">Domains</a></li>
-								<li class="menu-item menu-item-type-custom menu-item-object-custom "><a href="#">Websites</a></li>
-								<li class="menu-item menu-item-type-custom menu-item-object-custom "><a href="#">Email</a></li>
-								<li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#">Marketing</a></li>
-								<li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#">Support</a></li>
+								<li class="menu-item "><a href="home.html">Home</a></li>
+								<li class="menu-item "><a href="#">Domains</a></li>
+								<li class="menu-item "><a href="#">Websites</a></li>
+								<li class="menu-item "><a href="#">Email</a></li>
+								<li class="menu-item "><a href="#">Marketing</a></li>
+								<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children "><a href="#">Support +</a>
+									<ul class="sub-menu">
+										<li class="menu-item"><a href="support1.html">Support1</a></li>
+										<li class="menu-item"><a href="support2.html">Support2</a></li>
+										<li class="menu-item"><a href="support3.html">Support3</a></li>
+									</ul>
+								</li>
 							</ul>
 						</nav>
 						<!-- #primary-nav -->
@@ -143,7 +135,7 @@
 				<!-- #live-search -->
 			<div id="live-search">
 					<form role="search" method="get" id="searchform" class="clearfix" action="http://demo.herothemes.com/supportdesk/" autocomplete="off">
-						<input class="name" type="text" onfocus="if (this.value == 'Search Guide Path') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Search Guide Path';}" value="Search Guide Path ..." name="s" id="s" />
+						<input class="name" type="text" onfocus="if (this.value == 'Search Guide Path ...') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Search Guide Path ...';}" value="Search Guide Path ..." name="s" id="s" />
 						<input type="hidden" name="post_type[]" value="st_kb" />
 					</form>
 			</div>
