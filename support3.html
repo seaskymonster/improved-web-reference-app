@@ -2,17 +2,17 @@
 <html lang="en-US">
 <head>
     <link rel='stylesheet'  href="assets/css/style.css" type='text/css' media='all' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!--<link rel='stylesheet' id='bbp-child-bbpress-css'  href="http://demo.herothemes.com/supportdesk/wp-content/themes/supportdesk/bbpress/bbpress.css?d6b1d9" type='text/css' media='all' />-->
+    <link rel='stylesheet'  href="assets/css/style.css" type='text/css' media='all' />
+    <link rel='stylesheet'  href="assets/css/bbpress.css" type='text/css' media='all' />
 
-<body onload="initialize()" class="home page">
+<body onload="initialize()" class="home page page-id-11 page-template page-template-template-front-page page-template-template-front-page-php">
 <!-- #header -->
-<header id="header"  class="clearfix" role="banner">
+<header id="header" class="clearfix" role="banner">
     <div class="ht-container">
         <div id="header-inner" class="clearfix">
             <!-- #logo -->
             <div id="logo">
-                <a title="Acme" href="">
+                <a title="Acme" href="index.html">
                     <i class="icon logo" >ACME</i>
                 </a>
             </div>
@@ -40,6 +40,7 @@
 </header>
 <!-- /#header -->
 <!-- #page-header -->
+
 <div id="page-header" class="clearfix">
     <div class="ht-container">
         <h1>Welcome to Acme Support</h1>
@@ -62,20 +63,20 @@
     <div class="ht-container">
         <div class="row stacked">
             <div class="column col-third">
-                <div class="feature-icon"><img alt="" src="assets/images/kb-large.png" /></div>
-                <h3>Domains</h3>
-                <p>Find your perfect domain name.</p>
+                <a><div id="tag1" class="feature-icon"><img alt="" src="assets/images/kb-large.png" /></div></a>
+                <h3 id="tag1_name" contentEditable="true">Domains</h3>
+                <p contentEditable="true">Find your perfect domain name.</p>
             </div>
 
             <div class="column col-third">
-                <div class="feature-icon"><img alt="" src="assets/images/forum-large.png" /></div>
-                <h3>Websites</h3>
+                <a><div id="tag2"  class="feature-icon"><img alt="" src="assets/images/forum-large.png" /></div></a>
+                <h3 id="tag2_name" contentEditable="true">Websites</h3>
                 <p>Get your website online today.</p>
             </div>
 
             <div class="column col-third">
-                <div class="feature-icon"><img alt="" src="assets/images/contact-large.png" /></div>
-                <h3>Email</h3>
+                <a><div id="tag3" class="feature-icon"><img alt="" src="assets/images/contact-large.png" /></div></a>
+                <h3 id="tag3_name" contentEditable="true">Email</h3>
                 <p>The right email makes a difference.</p>
             </div>
         </div>
@@ -220,39 +221,44 @@
             event.preventDefault();
             var input = $('#tag1_name').html();
             console.log(input, 'input');
-            window.location ="gpa.html?helpid=" + input;
+            window.location ="gpa.html?tag=" + input;
         });
 
         jQuery('#tag2').click(function(event) {
             event.preventDefault();
             var input = $('#tag2_name').html();
             console.log(input, 'input');
-            window.location ="gpa.html?helpid=" + input;
+            window.location ="gpa.html?tag=" + input;
         });
 
         jQuery('#tag3').click(function(event) {
             event.preventDefault();
             var input = $('#tag3_name').html();
             console.log(input, 'input');
-            window.location ="gpa.html?helpid=" + input;
-        });
-        jQuery('#tag4').click(function(event) {
-            event.preventDefault();
-            var input = $('#tag4_name').html();
-            console.log(input, 'input');
-            window.location ="gpa.html?helpid=" + input;
-        });
-
-        jQuery('#tag5').click(function(event) {
-            event.preventDefault();
-            var input = $('#tag5_name').html();
-            console.log(input, 'input');
-            window.location ="gpa.html?helpid=" + input;
+            window.location ="gpa.html?tag=" + input;
         });
 
 
     });
 </script>
-
+<!--<script type='text/javascript' src="http://demo.herothemes.com/supportdesk/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?d6b1d9"></script>-->
+<!--<script type='text/javascript'>-->
+<!--/* <![CDATA[ */-->
+<!--var _wpcf7 = {"loaderUrl":"http:\/\/demo.herothemes.com\/supportdesk\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ...","cached":"1"};-->
+<!--/* ]]> */-->
+<!--</script>-->
+<!--<script type='text/javascript' src="http://demo.herothemes.com/supportdesk/wp-content/plugins/contact-form-7/includes/js/scripts.js?d6b1d9"></script>-->
+<!--<script type='text/javascript' src="http://demo.herothemes.com/supportdesk/wp-content/themes/supportdesk/js/functions.js?d6b1d9"></script>-->
+<!--<script type='text/javascript' src="http://demo.herothemes.com/supportdesk/wp-content/themes/supportdesk/js/jquery.livesearch.js?d6b1d9"></script>-->
+<!--<script type='text/javascript' src="http://demo.herothemes.com/supportdesk/wp-content/themes/supportdesk/framework/shortcodes/shortcodes.js?d6b1d9"></script>-->
+<!--<script type='text/javascript' src='http://dr57u1lgwukd1.cloudfront.net/supportdesk/wp-includes/js/comment-reply.min.js?d6b1d9?ver=4.3.1'></script>-->
 </body>
 </html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+Database Caching 16/29 queries in 0.008 seconds using disk
+Object Caching 1832/1850 objects using disk
+Content Delivery Network via Amazon Web Services: CloudFront: dr57u1lgwukd1.cloudfront.net
+
+ Served from: demo.herothemes.com @ 2015-09-23 19:03:07 by W3 Total Cache -->
