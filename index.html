@@ -52,8 +52,8 @@
 <!-- Highlights -->
 
 
-<div id="features-list" style="background-color:#86b854 ; background-size:100%">
-    <div class="ht-container" style="background-color:#86b854 ; background-size:100%">
+<div id="features-list">
+    <div class="ht-container">
         <div class="row stacked">
             <div class="column col-third">
                 <div class="feature-icon"><img alt="" src="assets/images/Domains.jpg" /></div>
@@ -124,9 +124,9 @@
         </div>
     </div>
 
-    <section id="jwttoken" class="wrapper style1">
+    <div id="jwttoken" class="wrapper style1">
 
-    </section>
+    </div>
     <div id="footer-bottom" class="clearfix">
         <div class="ht-container">
             <small id="copyright" role="contentinfo">Copyright © A Hero Theme.</small>
@@ -176,7 +176,7 @@
         var html = '<div class= "ht-container">' +
                 '<h3>Please Input your jwt token</h3>' +
                 '<form>' +
-                '<div class="row">' +
+                '<div>' +
                 '<div class="clearfix">' +
                 '<textarea id="message" placeholder="Please input your jwt token here" rows="6"></textarea>' +
                 '</div>' +
@@ -184,7 +184,7 @@
                 '<div class="row">' +
                 '<div>' +
                 '<ul>' +
-                '<li class="clearfix has_thumb"><input type="submit" id="jwt_token"  value="Update Token" /></li>' +
+                '<div class="clearfix has_thumb"><input type="submit" id="jwt_token"  value="Update Token" /></div>' +
                 '</ul>' +
                 '</div>' +
                 '</div>' +
@@ -196,9 +196,13 @@
         $('#jwttoken').submit(function(event) {
             event.preventDefault();
             var token = $('#message').val();
-            console.log(token);
-            localStorage.setItem('token',token);
-            $('#jwttoken').hide();
+            console.log('token',token);
+            if(!token || 0 === token.length){
+                $('#message').attr("placeholder", "Error: Your input is not valid, please type a valid token!");
+            }else {
+                localStorage.setItem('token', token);
+                $('#jwttoken').hide();
+            }
         });
     });
 </script>
