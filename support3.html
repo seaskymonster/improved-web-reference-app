@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!--<link rel='stylesheet' id='bbp-child-bbpress-css'  href="http://demo.herothemes.com/supportdesk/wp-content/themes/supportdesk/bbpress/bbpress.css?d6b1d9" type='text/css' media='all' />-->
 
-<body class="home page">
+<body onload="initialize()" class="home page">
 <!-- #header -->
 <header id="header"  class="clearfix" role="banner">
     <div class="ht-container">
@@ -191,15 +191,20 @@
 <script>
     function initialize() {
         var token = localStorage.getItem('token');
+        if(!token) {
+            token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
+        }
         if(token) {
             console.log(token);
             try {
                 NexusConnectSDK.initialize(token);
+                return token;
             }catch(e){
                 console.log(e);
             }
-        };
-        NexusConnectSDK.exitHelp();
+        }else{
+            console.log(e);
+        }
     };
 
     jQuery(document).ready(function() {
