@@ -1,0 +1,9 @@
+.header_image{
+    height:500px;
+    background: url('../images/Home.png');
+    background-size:   cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    overflow: hidden;
+}
