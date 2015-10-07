@@ -812,7 +812,8 @@ a:hover {
 #primary-nav {
     float:right;
 	position:absolute;
-	right:0;
+	/*right:0;*/
+	right:18%;
 	bottom:0;
 }
 #primary-nav ul {
@@ -827,7 +828,7 @@ a:hover {
 	font-weight: 600;
 	position: relative;
 	outline:none;
-	font-size: 15px;
+	font-size: 25px;
 	line-height: 100%;
 	height: 30px;
 	text-decoration:none;
