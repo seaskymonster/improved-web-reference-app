@@ -887,7 +887,7 @@ a:hover {
 	padding:0;
 	position: absolute;
 	top: -9999em;
-	width: 240px;
+	width: 140px;
 }
 #primary-nav ul ul ul {
 	margin:0;
@@ -900,17 +900,17 @@ a:hover {
 	padding:0;
 	border:none;
 	height:auto;
-	text-align:left;
+	text-align:center;
 	box-shadow:none;
 	border:none;
 }
 #primary-nav ul ul li a {
     font-size: 13px;
-	font-weight: normal;
+	font-weight: 900;
 	color:#595959;
     display: block;
     margin: 0;
-    padding: 20px 15px;
+    padding: 15px 15px;
 	height:auto;
 }
 #primary-nav ul ul li a:hover {
