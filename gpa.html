@@ -6,6 +6,8 @@
     <link rel='stylesheet'  href="assets/css/style-custom.css" type='text/css' media='all' />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel='stylesheet'  href="assets/css/bbpress.css" type='text/css' media='all' />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
 
 <body onload="initialize()" class="search search-results">
 <!-- #header -->
@@ -145,7 +147,9 @@
 </div>
 
 <!--<div  class="overlay"></div>-->
-<div style="display:none" id="container_for_live_support" class="modal"></div>
+<div style="display:none"  class="modal draggable">
+    <div class="draggable" style="position:absolute;height:400px;" id="container_for_live_support"></div>
+</div>
 <div class="content">
 </div>
 <!-- /#feedback -->
@@ -208,7 +212,9 @@
 </footer>
 <!-- /#footer-bottom -->
 
-<script src="assets/js/jquery.min.js"></script>
+<!--<script src="assets/js/jquery.min.js"></script>-->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
 <script>
     function getParameterByName(name) {
@@ -295,11 +301,11 @@
                 var externalId = Math.floor((Math.random() * 10000));
                 NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
                 NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'),{'phone':'(408)-830-7906', 'skill':'Sales'});
-                $('#container_for_live_support').show();
+                $('.modal').show();
                // $('#live_support_button').css("color","grey");
                 live_support_button_clicked = true;
             }else{
-                $('#container_for_live_support').hide();
+                $('.modal').hide();
                // $('#live_support_button').css("color","orange");
                 live_support_button_clicked = false;
             }
@@ -322,6 +328,9 @@
             NexusConnectSDK.exitHelp();
         }
     });
+
+    $('.draggable' ).draggable();
+    $('#container_for_live_support').draggable();
 
 
 

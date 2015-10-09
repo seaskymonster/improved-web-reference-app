@@ -173,21 +173,37 @@ input[type='button'],
 }
 
 /* just some content with arbitrary styles for explanation purposes */
+/*.modal {*/
+    /*width: 300px;*/
+    /*height: 400px;*/
+    /*line-height: 200px;*/
+    /*border:1px solid #CCCCCC;*/
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*right: 0.5%;*/
+    /*margin-top: -100px;*/
+    /*margin-left: -150px;*/
+    /*background-color: #86b854;*/
+    /*/!*border-radius: 5px;*!/*/
+    /*text-align: center;*/
+    /*z-index: 999; /!* 1px higher than the overlay layer *!/*/
+/*}*/
+
 .modal {
-    width: 300px;
-    height: 400px;
-    line-height: 200px;
+    position: absolute;
     border:1px solid #CCCCCC;
-    position: fixed;
     top: 50%;
     right: 0.5%;
+    /*line-height: 200px;*/
+    width: 300px;
+    height: 400px;
     margin-top: -100px;
-    margin-left: -150px;
+    padding: 5px;
     background-color: #86b854;
-    /*border-radius: 5px;*/
-    text-align: center;
-    z-index: 999; /* 1px higher than the overlay layer */
+    /*text-align: center;*/
+    z-index: 1;
 }
+
 
 .content {
     margin: 30px;
